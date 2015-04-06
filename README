@@ -1,4 +1,17 @@
-I'm stupid.
+Author:wenter
+Email:wenter.wu@gmail.com
+Org:DaoCloud
+
+
 This is a crawler for jd.com .
+
+Requires:
+
+
+Python2.7
+Scrapy
+BeautifulSoup
+
+
 
 
