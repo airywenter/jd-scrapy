@@ -15,7 +15,7 @@ BeautifulSoup
 
 RUN in jd project dir:
 
-scrapy crawl jd-category
+-scrapy crawl jd-category
 
 
 ps:
