@@ -5,10 +5,12 @@ import scrapy
 import logging
 import random
 import time
+from xlsxwriter.workbook import Workbook
 from bs4 import BeautifulSoup as Soup
 from scrapy.contrib.spiders import CrawlSpider,Rule
 from scrapy.contrib.linkextractors import LinkExtractor
 from jd.settings import DATA_DIR,FILTER_CATEGORIES
+
 
 LOG=logging.getLogger(__name__)
 
@@ -32,7 +34,15 @@ class JdCategorySpider(CrawlSpider):
         with open(fpath,'a') as f:
             for item in items:
                 f.write(item.encode('utf-8').strip()+'\n')
-                
+    
+    def write_to_excel(self,filename,items,fdir=DATA_DIR):
+        fpath=os.path.join(fdir,filename+'.xlsx')
+        workbook=Workbook(fpath)
+        worksheet=workbook.add_worksheet()
+        for i in range(len(items)):
+            for j in range(len(items.split(':::'))):
+                worksheet.write(i,j,items.split(':::')[j].decode('gbk'))
+            
 
     def parse_items(self,response):
         s=Soup(response.body)
