@@ -13,5 +13,16 @@ Scrapy
 BeautifulSoup
 
 
+RUN in jd project dir:
+
+scrapy crawl jd-category
+
+
+ps:
+You can edit the settings.py .
+  FILTER_CATEGORIES=['beauty']
+  
+That means the spider will crawl category 'beauty'. 
+If you wanna crawl more, you can  add ,like this: FILTER_CATEGORIES=['beauty','car']
 
 
